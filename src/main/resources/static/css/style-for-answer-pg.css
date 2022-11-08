@@ -1,0 +1,19 @@
+.bgVar {
+    margin-left: 17px;
+    background: #d2efc3;
+    width: 270px;
+    height: auto;
+    margin-top: -45px;
+    word-wrap: break-word;
+}
+
+.background-answer {
+    background: #12bedc;
+    width: 300px;
+    height: auto;
+
+}
+
+.point {
+    margin-left: -20px;
+}

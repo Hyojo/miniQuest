@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Create New Variant</title>
+    <link th:href="@{/css/create-question.css}" rel="stylesheet">
+</head>
+<body>
+<div class="backgroundQuestionPageСreate">
+    <h2>Create New Variant</h2>
+    <p th:text="${message}"></p>
+    <form th:action="@{/variant/create}" method="post">
+        <label for="name">
+            <h3>Enter Value</h3>
+        </label>
+        <input type="text" th:field="*{variant.nameVariant}" id="name"/>
+        <br>
+        <input type="submit" value="Create!"/>
+        <div>
+            <label>
+                <input th:type="hidden"
+                       th:value="${question.id}"
+                       th:name="question">
+            </label>
+        </div>
+    </form>
+</div>
+</body>
+</html>

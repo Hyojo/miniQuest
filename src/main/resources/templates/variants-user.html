@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Answer the question</title>
+    <link th:href="@{/css/style-for-answer-pg.css}" rel="stylesheet">
+</head>
+<body>
+<div class="background-answer">
+    <form th:action="@{/user/save_answer}" method="post" th:model="questionForm">
+        <input type="hidden" th:value="${user}" th:field="${user.id}"/>
+        <h2 type="hidden" th:value="${questionForm.question.id}"
+            th:field="*{questionForm.question.id}"
+            th:text="'Answer the question: ' + ${questionForm.getQuestion().nameQuestion}"/>
+        <input type="hidden" th:value="${questionForm.question.nameQuestion}"
+               th:field="*{questionForm.question.nameQuestion}"/>
+        <br>
+        <div class="bgVar" th:each="answer : ${questionForm.getAnswers}">
+
+            <p class="point" th:each="variant : ${answer.getQuestion().getVariants()}">
+                <label>
+                    <input th:type="${variant.question.type}" th:id="${variant.id}"
+                           th:field="*{questionForm.answers[__${answerStat.index}__].variants}"
+                           th:value="${variant.id}">
+                </label>
+                <label th:for="${variant.id}" th:text="${variant.getNameVariant()}"></label>
+            </p>
+            <br>
+        </div>
+        <div>
+            <br>
+            <button type="submit">Complete</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

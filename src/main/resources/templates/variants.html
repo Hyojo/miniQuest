@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variants</title>
+    <link th:href="@{/css/question-page.css}" rel="stylesheet">
+</head>
+<body>
+<div class="backgroundQuestionPage">
+    <h2> List variants: </h2>
+    <div class="backgroundQuestion">
+        <p th:text="${message}"></p>
+        <div th:each="variant : ${variants}">
+            <a th:text="${variant.getNameVariant()}">question</a>
+            <a th:href="@{/variant/{id}/edit (id=${variant.getId()})}">Edit</a>
+            <a th:href="@{/variant/{id}/delete (id=${variant.getId()})}">Delete</a>
+        </div>
+    </div>
+    <form th:action="@{/variant/{id}/create (id=${question.getId()})}" method="GET">
+        <button type="submit">Add New Variant</button>
+    </form>
+
+    <form action="/" method="GET">
+        <button type="submit">Complete</button>
+    </form>
+
+</div>
+</body>
+</html>

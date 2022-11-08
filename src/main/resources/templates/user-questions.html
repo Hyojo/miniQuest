@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <link th:href="@{/css/user-question.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="background-select">
+    <h2> Select the question: </h2>
+    <div class="ul">
+        <div th:each="questions : ${question}">
+            <ul>
+                <li class="ulli">
+                    <h2>
+                        <a th:href="@{/user/question/{id}(id=${questions.getId()})}"
+                           th:text="${questions.getNameQuestion()}">questions</a>
+                    </h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form action="/" method="GET">
+        <button type="submit">Назад</button>
+    </form>
+</div>
+
+
+</body>
+</html>

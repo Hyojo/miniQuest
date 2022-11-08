@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Create New Question</title>
+    <link th:href="@{/css/create-question.css}" rel="stylesheet">
+</head>
+<body>
+<div class="backgroundQuestionPageСreate">
+    <h2>Create New Question</h2>
+    <p th:text="${message}"></p>
+    <form th:action="@{/question/create}" th:method="post">
+        <label for="name"><h3>Enter Variant</h3></label>
+        <input type="text" th:field="*{question.nameQuestion}" id="name"/>
+        <br/>
+        <h3>Choose type</h3>
+        <div class="typeQuestion">
+            <label>
+                <select th:field="*{question.type}">
+                    <option th:each="type : ${T(com.example.miniquest.model.Type).values()}"
+                            th:value="${type}"
+                            th:text="${type}">
+                    </option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <input type="submit" value="Create!"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

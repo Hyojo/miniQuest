@@ -1,0 +1,12 @@
+.backgroundQuestionPageСreate{
+    margin-right: auto;
+    margin-left: auto;
+    background: #12bedc;
+    text-align: center;
+    padding: 4px;
+    width: 250px;
+}
+.typeQuestion{
+    margin-top: -10px;
+    margin-bottom: 5px;
+}

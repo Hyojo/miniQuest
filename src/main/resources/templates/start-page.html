@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link th:href="@{/css/start-page.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<div class="form-in">
+    <form th:action="@{/login}" method="post">
+        <div><label> User Name<input type="text" name="username"/> </label></div>
+        <div><label> Password<input type="password" name="password"/> </label></div>
+        <div class="singId"><input type="submit" value="Sign In"/></div>
+    </form>
+</div>
+<form class="form-in" th:action="@{/registration}" method="GET">
+    <div><input type="submit" value="Registration"/></div>
+</form>
+<form class="form-in" th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<div class="divcent">
+    <form class="form" th:action="@{/user}" method="GET">
+        <div><input type="submit" value="Questions"/></div>
+    </form>
+    <form class="form" th:action="@{/question/show}" method="GET">
+        <div><input type="submit" value="Create Question"/></div>
+    </form>
+    <form class="form" th:action="@{/answer}" method="GET">
+        <div><input type="submit" value="Check Answers"/></div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Update Question</title>
+</head>
+<body>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<h1>Update Question</h1>
+<form th:action="@{/question/{id} (id=${question.getId()})}" th:method="PATCH">
+    <label for="name">Enter Value: </label>
+    <input type="text" th:field="*{question.nameQuestion}" id="name"/>
+    <br/>
+    <div class="form-group">
+        <label>
+            <select th:field="*{question.type}">
+                <option th:each="type : ${T(com.example.miniquest.model.Type).values()}"
+                        th:value="${type}"
+                        th:text="${type}">
+                </option>
+            </select>
+        </label>
+    </div>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>

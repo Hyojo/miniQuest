@@ -1,0 +1,18 @@
+.backgroundQuestionPage{
+    margin-right: auto;
+    margin-left: auto;
+    background: #12bedc;
+    text-align: center;
+    padding: 4px;
+    width: 250px;
+
+}
+.backgroundQuestion{
+    background: #fdfdfd;
+    margin-bottom: 5px;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+}

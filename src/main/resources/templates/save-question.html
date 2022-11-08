@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions list</title>
+</head>
+<body>
+
+<h2>Questions list:</h2>
+
+<div th:each="question : ${questions}">
+    <ul>
+        <li>
+            <a th:href="@{/answer/question/{id}/user/{id_user} (id=${question.getId()}, id_user=${user.getId()})}"
+               th:text="${question.getNameQuestion()}">question</a>
+        </li>
+    </ul>
+</div>
+
+<form action="/answer" method="GET">
+    <button type="submit">Назад</button>
+</form>
+
+</body>
+</html>

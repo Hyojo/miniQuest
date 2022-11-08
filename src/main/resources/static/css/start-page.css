@@ -1,0 +1,24 @@
+
+.form-in {
+    display: block;
+    background: #12bedc;
+    padding: 4px;
+    width: 180px;
+    color: black;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.singId {
+    margin-top: 4px;
+}
+
+.form {
+    display: inline-block;
+}
+
+.divcent {
+    margin-top: 1%;
+    text-align: center;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Question</title>
+    <link th:href="@{/css/question-page.css}" rel="stylesheet">
+</head>
+<body>
+<div class="backgroundQuestionPage">
+    <h2> List questions: </h2>
+    <div class="backgroundQuestion">
+        <p th:text="${message}"></p>
+        <div th:each="question : ${questions}">
+            <a th:href="@{/question/{id}/variants(id=${question.getId()})}"
+               th:text="${question.getNameQuestion()}">question</a>
+            <a th:href="@{/question/edit/{id} (id=${question.getId()})}">edit</a>
+            <a th:href="@{/question/delete/{id} (id=${question.getId()})}">delete</a>
+        </div>
+    </div>
+    <div>
+        <form th:action="@{/question/create}" method="GET">
+            <button type="submit">Create New Question</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:model="questionForm">
+    <input type="hidden" th:value="${questionForm.question.nameQuestion}"
+           th:field="*{questionForm.question.nameQuestion}"/>
+    <div th:each="answer,answerStat : ${questionForm.getAnswers}">
+        <h2 th:text="'Вопрос: ' + ${answer.question.nameQuestion}"></h2>
+        <input type="hidden" th:value="${answer.id}" th:field="*{questionForm.answers[__${answerStat.index}__].id}"/>
+        <input type="hidden" th:value="${answer.question.nameQuestion}"
+               th:field="*{questionForm.answers[__${answerStat.index}__].question.nameQuestion}"/>
+        <input type="hidden" th:value="${answer.question.id}"
+               th:field="*{questionForm.answers[__${answerStat.index}__].question.id}"/>
+
+        <div th:each="variant : ${answer.getQuestion().getVariants()}">
+            <label>
+                <input th:type="${variant.question.type}" th:id="${variant.id}"
+                       th:field="*{questionForm.answers[__${answerStat.index}__].variants}"
+                       th:value="${variant.id}">
+            </label>
+            <label th:for="${variant.id}" th:text="${variant.getNameVariant()}"></label>
+        </div>
+
+    </div>
+</div>
+<form action="/answer" method="GET">
+    <button type="submit">Назад</button>
+</form>
+</body>
+</html>
